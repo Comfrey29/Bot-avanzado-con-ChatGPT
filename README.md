@@ -1,88 +1,88 @@
 # Bot-avanzado-con-ChatGPT
 Bot to help you with a ChatGPT
-Descripció del programa:
-Funcionalitat de Server-Client (comunicació entre ells):
+Descripción del programa:
+Funcionalidad de Server-Client (comunicación entre ellos):
 
-El servidor crea un socket per escoltar a les connexions entrants dels clients en el port 8080.
+El servidor crea un socket para escuchar las conexiones entrantes de los clientes en el puerto 8080.
 
-El client es connecta al servidor mitjançant el socket i li envia missatges per rebre respostes del servidor.
+El cliente se conecta al servidor mediante el socket y envía mensajes para recibir respuestas del servidor.
 
-La comunicació es fa mitjançant comandes d'entrada de text que el servidor processa i respon a l'usuari.
+La comunicación se realiza mediante comandos de texto que el servidor procesa y responde al usuario.
 
-Comandes disponibles per l'usuari:
+Comandos disponibles para el usuario:
 
-Calculadora: Quan l'usuari escriu "Calculadora", el servidor l'informa de com introduir operacions matemàtiques en el format "número1 operació número2". El servidor processa operacions com suma, resta, multiplicació i divisió, i retorna el resultat. Exemple:
-
-Entrada: "5 + 3"
-
-Resposta del servidor: "El resultat de l'operació és: 8"
-
-Llista d'Ajuda: Quan l'usuari escriu "Ajuda" o "Llista", el servidor li mostra una llista de categories disponibles. Aquesta llista inclou diverses opcions com Llengües d'Europa, Programació, Matemàtiques, Francès, entre altres. Exemple de resposta:
-
-Entrada: "Ajuda"
-
-Resposta del servidor: "Les categories disponibles són: 1. Llengües d'Europa, 2. Programació, 3. Matemàtiques, 4. Francès."
-
-Comandes d'operacions: El servidor detecta operacions matemàtiques en el missatge de l'usuari i les calcula en temps real. Per exemple:
+Calculadora: Cuando el usuario escribe "Calculadora", el servidor le informa sobre cómo introducir operaciones matemáticas en el formato "número1 operación número2". El servidor procesa operaciones como suma, resta, multiplicación y división, y devuelve el resultado. Ejemplo:
 
 Entrada: "5 + 3"
 
-Resposta: "El resultat de l'operació és: 8"
+Respuesta del servidor: "El resultado de la operación es: 8"
 
-Interacció amb l'usuari:
+Lista de Ayuda: Cuando el usuario escribe "Ayuda" o "Lista", el servidor le muestra una lista de categorías disponibles. Esta lista incluye varias opciones como Lenguas de Europa, Programación, Matemáticas, Francés, entre otras. Ejemplo de respuesta:
 
-Quan l'usuari connecta al servidor, aquest li dóna una benvinguda i li ofereix instruccions inicials.
+Entrada: "Ayuda"
 
-El servidor reconeix comandes específiques, com "Calculadora", per guiar l'usuari en el procés d'entrada d'operacions matemàtiques.
+Respuesta del servidor: "Las categorías disponibles son: 1. Lenguas de Europa, 2. Programación, 3. Matemáticas, 4. Francés."
 
-El servidor pot respondre amb missatges de benvinguda, instruccions, o el resultat d'una operació matemàtica depenent del que escrigui l'usuari.
+Comandos de operaciones: El servidor detecta operaciones matemáticas en el mensaje del usuario y las calcula en tiempo real. Por ejemplo:
 
-Comandes especials:
+Entrada: "5 + 3"
 
-Clear o cls: En el client, l'usuari pot utilitzar la comanda clear o cls per netejar la pantalla del client. Això és útil per mantenir la consola neta i organitzada durant l'ús continuat.
+Respuesta: "El resultado de la operación es: 8"
 
-Ajuda: Com ja s'ha esmentat, la comanda "Ajuda" serveix per mostrar les opcions disponibles que l'usuari pot utilitzar dins el sistema.
+Interacción con el usuario:
+
+Cuando el usuario se conecta al servidor, este le da una bienvenida y le ofrece instrucciones iniciales.
+
+El servidor reconoce comandos específicos, como "Calculadora", para guiar al usuario en el proceso de entrada de operaciones matemáticas.
+
+El servidor puede responder con mensajes de bienvenida, instrucciones, o el resultado de una operación matemática dependiendo de lo que escriba el usuario.
+
+Comandos especiales:
+
+Clear o cls: En el cliente, el usuario puede utilizar el comando clear o cls para limpiar la pantalla del cliente. Esto es útil para mantener la consola limpia y organizada durante el uso continuo.
+
+Ayuda: Como ya se mencionó, el comando "Ayuda" sirve para mostrar las opciones disponibles que el usuario puede utilizar dentro del sistema.
 
 Multithreading:
 
-El programa utilitza threads (fils) per permetre la comunicació simultània entre el servidor i el client.
+El programa utiliza threads (hilos) para permitir la comunicación simultánea entre el servidor y el cliente.
 
-Servidor: Un fil dedicat al servidor gestiona les connexions entrants i processa les peticions dels clients.
+Servidor: Un hilo dedicado al servidor gestiona las conexiones entrantes y procesa las peticiones de los clientes.
 
-Client: Un altre fil gestiona la connexió al servidor i permet a l'usuari enviar missatges i rebre respostes.
+Cliente: Otro hilo gestiona la conexión al servidor y permite al usuario enviar mensajes y recibir respuestas.
 
-Fluix de treball del programa:
-Inici del servidor i client:
+Flujo de trabajo del programa:
+Inicio del servidor y cliente:
 
-Quan l'usuari executa el programa, es crea un fil per al servidor que comença a escoltar connexions entrants.
+Cuando el usuario ejecuta el programa, se crea un hilo para el servidor que comienza a escuchar conexiones entrantes.
 
-El client es connecta al servidor un cop aquest està disponible i inicia la interacció.
+El cliente se conecta al servidor una vez que este está disponible e inicia la interacción.
 
-Interacció de l'usuari amb el client:
+Interacción del usuario con el cliente:
 
-L'usuari escriu comandes com Calculadora, Ajuda, o operacions matemàtiques com 5 + 3.
+El usuario escribe comandos como Calculadora, Ayuda, o operaciones matemáticas como 5 + 3.
 
-El client envia aquesta informació al servidor, que processa la comanda.
+El cliente envía esta información al servidor, que procesa el comando.
 
-Si l'usuari ha demanat una operació matemàtica, el servidor realitza el càlcul i retorna el resultat.
+Si el usuario ha solicitado una operación matemática, el servidor realiza el cálculo y devuelve el resultado.
 
-Si l'usuari escriu Ajuda, el servidor li mostra una llista de les categories disponibles.
+Si el usuario escribe Ayuda, el servidor le muestra las categorías disponibles.
 
-Codi de processament de comandes:
+Código de procesamiento de comandos:
 
-El servidor analitza les comandes rebudes i determina si l'usuari vol utilitzar la calculadora, veure les opcions disponibles o realitzar una altra acció.
+El servidor analiza los comandos recibidos y determina si el usuario quiere utilizar la calculadora, ver las opciones disponibles o realizar otra acción.
 
-El servidor retorna una resposta per cada comanda, per exemple, mostrant resultats de càlculs matemàtics o oferint ajuda.
+El servidor devuelve una respuesta para cada comando, por ejemplo, mostrando resultados de cálculos matemáticos o proporcionando ayuda.
 
-Resum de funcionalitats clau:
-Interacció Client-Servidor: El client envia missatges al servidor, i el servidor els processa i retorna respostes.
+Resumen de funcionalidades clave:
+Interacción Cliente-Servidor: El cliente envía mensajes al servidor, y el servidor los procesa y devuelve respuestas.
 
-Càlculs Matemàtics: El servidor permet realitzar operacions bàsiques com suma, resta, multiplicació i divisió.
+Cálculos Matemáticos: El servidor permite realizar operaciones básicas como suma, resta, multiplicación y división.
 
-Ajuda i Llista: El servidor proporciona una llista d'opcions i categories per a l'usuari.
+Ayuda y Lista: El servidor proporciona una lista de opciones y categorías para el usuario.
 
-Comandes especials: Inclou comandes per netejar la consola (clear o cls) i obtenir ajuda sobre les opcions disponibles.
+Comandos especiales: Incluye comandos para limpiar la consola (clear o cls) y obtener ayuda sobre las opciones disponibles.
 
-Multithreading: El servidor i client s'executen en fils separats per garantir una comunicació eficient i en temps real.
+Multithreading: El servidor y cliente se ejecutan en hilos separados para garantizar una comunicación eficiente y en tiempo real.
 
-Aquest programa és un bon exemple de com utilitzar sockets, fils i processament de comandes per crear un sistema interactiu entre un client i un servidor. Té aplicacions potencials en serveis de suport, educatius o en aplicacions de consultes en temps real.
+Este programa es un buen ejemplo de cómo utilizar sockets, hilos y procesamiento de comandos para crear un sistema interactivo entre un cliente y un servidor. Tiene aplicaciones potenciales en servicios de soporte, educativos o en aplicaciones de consultas en tiempo real.
